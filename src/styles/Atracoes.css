@@ -1,0 +1,115 @@
+.atracoes-container {
+  background: rgba(26, 26, 26, 0.85);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.atracoes-header h1 {
+  font-size: 3.5rem;
+  color: #20AAF9;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.atracoes-header p {
+  font-size: 1.25rem;
+  color: #d8f6f0;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.8;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.atracao-card {
+  width: 350px;
+  height: 650px;
+  background-color: #e0eaf0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+.atracao-card:hover {
+  transform: scale(1.05);
+}
+
+.atracao-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  color: white;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.overlay .icon {
+  margin-bottom: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.overlay h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.overlay p {
+  font-size: 1rem;
+  color: #f0f0f0;
+  padding: 0 1rem;
+  text-align: center;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.overlay button {
+  margin-top: 1rem;
+  background-color: #20AAF9;
+  color: #fff;
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  border: none;
+border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.4s ease, background-color 0.4s ease;
+  font-weight: 600;
+}
+
+.overlay button:hover {
+ background-color: #60E900;
+  transform: translateY(-2px); /* Animação de movimento suave */
+}
