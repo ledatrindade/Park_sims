@@ -1,0 +1,103 @@
+/* ============================ */
+/* SEÇÃO PRINCIPAL DA HOME     */
+/* ============================ */
+.home-section {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ============================ */
+/* CONTAINER COM IMAGEM DE FUNDO */
+/* ============================ */
+.home-container {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  color: #fff;
+}
+
+/* Sobreposição em degradê na imagem de fundo */
+.home-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: linear-gradient(to right, 
+    rgba(0, 0, 0, 0.95) 0%, 
+    rgba(0, 0, 0, 0.8) 45%, 
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0.2) 70%, 
+    rgba(0, 0, 0, 0) 80%
+  );
+
+  z-index: 0; /* Coloca atrás do conteúdo */
+}
+
+/* ============================ */
+/* CONTEÚDO DO TEXTO DA HOME   */
+/* ============================ */
+.home-content {
+  max-width: 1200px;
+  margin-left: 3rem;
+  padding: 2rem;
+  z-index: 1;
+}
+
+/* Texto principal (título + parágrafos + botão) */
+.home-text {
+  max-width: 700px;
+  text-align: left;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  right: 5%;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.home-text h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: #20AAF9; /* Azul principal */
+}
+
+.home-text p {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #ddd;
+}
+
+/* ============================ */
+/* BOTÃO DE CHAMADA (CTA)      */
+/* ============================ */
+.cta-button {
+  margin-top: 2rem;
+  background-color: #20AAF9;  /* Azul */
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  font-weight: 600;
+}
+
+.cta-button:hover {
+  background-color: #60E900; /* Verde claro ao passar o mouse */
+  transform: translateY(-5px);
+}
+

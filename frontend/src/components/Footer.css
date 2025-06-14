@@ -1,0 +1,9 @@
+/* Estilos para o componente de rodapé (footer) */
+.footer {
+  background-color: #1a1a1a; /* Cor de fundo escura para o rodapé */
+  color: #ccc; /* Cor do texto para contraste com o fundo */
+  text-align: center; /* Centraliza o texto horizontalmente */
+  padding: 0.5rem 0.5rem; /* Espaçamento interno (superior/inferior e lateral) */
+  font-size: 14px; /* Tamanho da fonte para o texto do rodapé */
+  border-top: 1px solid #333; /* Uma borda superior fina para separar do conteúdo acima */
+}

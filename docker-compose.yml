@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: parque-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: parque
+    ports:
+      - "3306:3306"
+    volumes:
+      - parque_db:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    container_name: parque-backend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db        # aqui é o nome do serviço do db no docker-compose
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: parque
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: parque-frontend
+    restart: always
+    ports:
+      - "5173:5173"  # a porta padrão do Vite / React
+    depends_on:
+      - backend
+    command: ["npm", "run", "dev"]
+
+volumes:
+  parque_db:

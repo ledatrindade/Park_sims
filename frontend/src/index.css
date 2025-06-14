@@ -1,0 +1,68 @@
+/* Variáveis CSS e configurações globais para o elemento raiz (:root) */
+:root {
+  /* Define uma pilha de fontes preferidas, com fallback para fontes genéricas */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5; /* Altura da linha para melhor legibilidade */
+  font-weight: 400; /* Peso da fonte padrão */
+
+  color-scheme: light dark; /* Permite que o navegador escolha entre esquemas de cores claro/escuro */
+  color: rgba(255, 255, 255, 0.87); /* Cor do texto padrão para elementos não especificados */
+  background-color: #242424; /* Cor de fundo padrão para o documento.
+                                Note que em App.css e em outros componentes, fundos específicos
+                                como `rgba(26, 26, 26, 0.85)` são aplicados sobre este. */
+
+  font-synthesis: none; /* Desabilita a síntese de fontes para navegadores (otimização) */
+  text-rendering: optimizeLegibility; /* Otimiza a renderização do texto para legibilidade */
+  -webkit-font-smoothing: antialiased; /* Suaviza as bordas da fonte em navegadores baseados em WebKit */
+  -moz-osx-font-smoothing: grayscale; /* Suaviza as bordas da fonte em navegadores Firefox no macOS */
+}
+
+/* Estilos para o elemento body */
+body {
+  margin: 0; /* Remove a margem padrão do body */
+  padding: 0; /* Remove o padding padrão do body */
+  min-width: 320px; /* Define uma largura mínima para o corpo, útil para responsividade */
+  min-height: 100%; /* Garante que o corpo ocupe pelo menos 100% da altura do pai (html).
+                        Isto é crucial para que o `height: 100%` do `#root` funcione. */
+  font-family: 'Segoe UI', sans-serif; /* Define a fonte específica para o body */
+  overflow-y: scroll; /* Garante que a barra de rolagem vertical esteja sempre presente,
+                          mesmo que o conteúdo não preencha a tela, evitando "saltos" no layout. */
+  
+}
+
+/* Estilos para títulos h1 */
+h1 {
+  font-size: 3.2em; /* Tamanho da fonte para h1 */
+  line-height: 1.1; /* Altura da linha para h1 */
+}
+
+/* Estilos globais para html, body e #root para garantir que ocupem toda a tela */
+html, body, #root {
+  margin: 0; /* Remove margens */
+  padding: 0; /* Remove paddings */
+  width: 100%; /* Garante que ocupem 100% da largura do pai */
+  height: 100%; /* Garante que ocupem 100% da altura do pai.*/
+              
+  overflow: visible; }/* Permite que o conteúdo ultrapasse o elemento e a rolagem aconteça.*/
+                  
+
+
+/* Media Queries para Responsividade: Estilos aplicados em telas com largura máxima de 480px (smartphones) */
+@media (max-width: 480px) {
+  /* Estilos para o wrapper de dropdown personalizado */
+  .custom-dropdown-wrapper {
+    width: 100%; /* Ocupa a largura total da tela em dispositivos pequenos */
+  }
+  /* Estilos para inputs dentro de um elemento com classe 'step' */
+  .step input {
+    max-width: 100%; /* Garante que inputs não excedam a largura da tela */
+  }
+  /* Estilos para o conteúdo de modais */
+  .modal-content {
+    padding: 1.5rem; /* Reduz o padding interno do modal em telas pequenas */
+  }
+  /* Estilos para títulos h2 dentro de um elemento com classe 'step' */
+  .step h2 {
+    font-size: 1.6rem; /* Reduz o tamanho da fonte do título para telas pequenas */
+  }
+}

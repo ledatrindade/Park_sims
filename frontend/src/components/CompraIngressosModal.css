@@ -1,0 +1,369 @@
+/* Estilo para o backdrop do modal (fundo escurecido) */
+.modal-backdrop {
+  position: fixed; /* Fixa o elemento na janela de visualização */
+  inset: 0; /* Ocupa toda a largura e altura da tela */
+  background: rgba(15, 15, 15, 0.6); /* Cor de fundo semi-transparente */
+  backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+  z-index: 9999; /* Garante que o backdrop esteja acima de outros elementos */
+  display: flex; /* Usa flexbox para centralizar o conteúdo */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  overflow: hidden; /* Esconde qualquer conteúdo que exceda as bordas */
+}
+
+/* Estilo para o conteúdo principal do modal */
+.modal-content {
+  background: linear-gradient(135deg, #1c1c1e, #2e2e33); /* Gradiente de fundo */
+  color: #f0f0f0; /* Cor do texto */
+  padding: 2.5rem; /* Espaçamento interno */
+  border-radius: 20px; /* Bordas arredondadas */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte */
+  position: relative; /* Para posicionar o botão de fechar */
+  animation: modalFadeIn 0.4s ease; /* Animação de entrada */
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Organiza os itens em coluna */
+  overflow: hidden; /* Esconde conteúdo que transborda */
+  max-width: 600px; /* Largura máxima */
+  width: 90%; /* Largura responsiva */
+}
+
+/* Keyframes para a animação de entrada do modal */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0; /* Começa invisível */
+    transform: scale(0.95); /* Começa ligeiramente menor */
+  }
+  to {
+    opacity: 1; /* Termina totalmente visível */
+    transform: scale(1); /* Termina no tamanho normal */
+  }
+}
+
+/* Estilo para o botão de fechar do modal */
+.close-button {
+  position: absolute; /* Posicionamento absoluto dentro do modal-content */
+  top: 1rem; /* Distância do topo */
+  right: 1.5rem; /* Distância da direita */
+  font-size: 1.8rem; /* Tamanho da fonte */
+  background: none; /* Sem background */
+  border: none; /* Sem borda */
+  color: #ccc; /* Cor do ícone */
+  cursor: pointer; /* Ícone de cursor de clique */
+  transition: color 0.3s ease; /* Transição suave na cor */
+  padding: 0; /* Sem padding */
+  line-height: 1; /* Altura da linha para alinhamento */
+}
+
+/* Estilo do botão de fechar ao passar o mouse */
+.close-button:hover {
+  color: #60E900; /* Muda a cor ao passar o mouse */
+}
+
+/* Estilo para os títulos de cada etapa */
+.step h2 {
+  font-size: 2rem; /* Tamanho da fonte */
+  margin-bottom: 1rem; /* Margem inferior */
+  color: #60e900; /* Cor do título */
+  text-align: center; /* Alinhamento central */
+  font-weight: 700; /* Negrito */
+}
+
+/* Estilo para os rótulos (labels) dos campos de formulário */
+.step label {
+  display: block; /* Ocupa a largura total */
+  margin: 1rem 0 0.5rem; /* Margem superior, inferior e lateral */
+  font-weight: 600; /* Semi-negrito */
+  color: #ccc; /* Cor do texto */
+  font-size: 20px; /* Tamanho da fonte */
+  text-align: justify; /* Alinhamento justificado */
+}
+
+/* Estilo para os campos de entrada (inputs) */
+.step input {
+  width: 100%; /* Ocupa 100% da largura do contêiner pai */
+  max-width: 500px; /* Largura máxima */
+  padding: 0.7rem 1rem; /* Espaçamento interno */
+  border: 1px solid transparent; /* Borda transparente */
+  border-radius: 12px; /* Bordas arredondadas */
+  background-color: #2e2e33; /* Cor de fundo */
+  color: #f0f0f0; /* Cor do texto */
+  font-size: 1rem; /* Tamanho da fonte */
+  margin-bottom: 1rem; /* Margem inferior */
+  margin-top: 1rem; /* Margem superior */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave nas propriedades */
+  appearance: none; /* Remove estilos padrão do navegador */
+  outline: none; /* Remove o contorno de foco padrão */
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura */
+  cursor: pointer; /* Ícone de cursor de clique */
+  display: block; /* Ocupa a largura total */
+}
+
+/* Estilo dos inputs ao passar o mouse ou receber foco */
+.step input:hover,
+.step input:focus {
+  border-color: #60e900; /* Muda a cor da borda */
+  box-shadow: 0 0 8px 2px rgba(96, 233, 0, 0.4); /* Adiciona sombra */
+}
+
+/* Container para os botões de navegação entre as etapas */
+.step-buttons {
+  display: flex; /* Usa flexbox */
+  justify-content: space-between; /* Distribui os botões com espaço entre eles */
+  margin-top: 1.5rem; /* Margem superior */
+}
+
+/* Estilo geral dos botões dentro de step-buttons */
+.step-buttons button {
+  background-color: #60e900; /* Cor de fundo */
+  color: #000; /* Cor do texto */
+  padding: 0.7rem 1.2rem; /* Espaçamento interno */
+  border: none; /* Sem borda */
+  border-radius: 10px; /* Bordas arredondadas */
+  font-weight: 600; /* Semi-negrito */
+  cursor: pointer; /* Ícone de cursor de clique */
+  transition: background-color 0.3s ease; /* Transição suave no background */
+}
+
+/* Estilo dos botões ao passar o mouse */
+.step-buttons button:hover {
+  background-color: #a4f45f; /* Muda a cor de fundo ao passar o mouse */
+}
+
+/* Keyframes para as animações de fade do toast */
+@keyframes fadein {
+  from { opacity: 0; transform: translate(-50%, -60%); } /* Começa invisível e ligeiramente acima */
+  to { opacity: 1; transform: translate(-50%, -50%); } /* Termina visível e centralizado */
+}
+
+@keyframes fadeout {
+  from { opacity: 1; transform: translate(-50%, -50%); } /* Começa visível e centralizado */
+  to { opacity: 0; transform: translate(-50%, -40%); } /* Termina invisível e ligeiramente acima */
+}
+
+/* Estilo base para todos os toasts (notificações temporárias) */
+.toast {
+  position: fixed; /* Fixa o elemento na janela de visualização */
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta para centralizar com base no próprio tamanho */
+  padding: 16px 32px; /* Espaçamento interno */
+  border-radius: 16px; /* Bordas arredondadas */
+  color: white; /* Cor do texto */
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: 500; /* Peso da fonte */
+  box-shadow: 0px 8px 24px rgba(0,0,0,0.25); /* Sombra */
+  z-index: 11000; /* Garante que o toast esteja acima de tudo */
+  animation: fadein 0.3s ease, fadeout 0.3s ease 2.7s; /* Animações de entrada e saída */
+  max-width: 90%; /* Largura máxima */
+  text-align: center; /* Alinhamento do texto */
+  line-height: 1.4; /* Altura da linha */
+}
+
+/* Estilo específico para toasts de erro */
+.toast-error {
+  background-color: #ff4d4f; /* Cor de fundo vermelha */
+}
+
+/* Estilo específico para toasts de sucesso */
+.toast-success {
+  background-color: #52c41a; /* Cor de fundo verde */
+}
+
+/* Estilo específico para toasts de aviso (warning) */
+.toast-warning {
+  background-color: #faad14; /* Cor de fundo laranja */
+}
+
+/* Estilo específico para toasts de informação */
+.toast-info {
+  background-color: #1890ff; /* Cor de fundo azul */
+}
+
+/* Estilo para contêineres com conteúdo rolável */
+.scrollable-content {
+  max-height: 240px; /* Altura máxima antes de ativar a rolagem */
+  max-width: 600px; /* Largura máxima */
+  overflow-y: auto; /* Adiciona barra de rolagem vertical se o conteúdo exceder */
+  padding-right: 8px; /* Espaço para a barra de rolagem */
+  margin-bottom: 16px; /* Margem inferior */
+}
+
+/* Estilo da barra de rolagem para navegadores WebKit */
+.scrollable-content::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+/* Estilo do "polegar" (thumb) da barra de rolagem */
+.scrollable-content::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Cor do thumb */
+  border-radius: 4px; /* Bordas arredondadas do thumb */
+}
+
+/* Estilo específico para a etapa de confirmação */
+.step-confirmation {
+  max-height: 600px; /* Altura máxima */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Organiza os itens em coluna */
+}
+
+/* Conteúdo rolável dentro da etapa de confirmação, ocupando o espaço restante */
+.step-confirmation .scrollable-content {
+  overflow-y: auto; /* Ativa a rolagem vertical */
+  flex-grow: 1; /* Permite que o conteúdo rolável cresça para ocupar o espaço disponível */
+  max-height: 278px; /* Altura máxima específica para este contexto */
+}
+
+/* Estilo para os "cards" de informação na etapa de confirmação */
+.card {
+  background-color: #f9f9f9; /* Cor de fundo clara */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 1.4rem 1.6rem; /* Espaçamento interno */
+  margin-bottom: 1.6rem; /* Margem inferior */
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.1); /* Sombra suave */
+  border: 1px solid #dce3e8; /* Borda fina */
+}
+
+/* Estilo para os títulos dentro dos cards */
+.card h3 {
+  margin-bottom: 1rem; /* Margem inferior */
+  color: #34495e; /* Cor do texto */
+  font-weight: 600; /* Semi-negrito */
+  border-bottom: 1px solid #ccc; /* Linha divisória */
+  padding-bottom: 0.3rem; /* Espaçamento abaixo da linha */
+}
+
+/* Estilo para a tabela de resumo de ingressos */
+.summary-table {
+  width: 100%; /* Ocupa a largura total */
+  border-collapse: collapse; /* Remove espaçamento entre células da tabela */
+  font-size: 0.95rem; /* Tamanho da fonte */
+  color: #2c3e50; /* Cor do texto */
+}
+
+/* Estilo para cabeçalhos e células da tabela */
+.summary-table th,
+.summary-table td {
+  padding: 0.6rem 1rem; /* Espaçamento interno */
+  border-bottom: 1px solid #e1e5eb; /* Borda inferior */
+  text-align: left; /* Alinhamento do texto à esquerda */
+}
+
+/* Estilo para os cabeçalhos da tabela */
+.summary-table th {
+  background-color: #ecf0f1; /* Cor de fundo */
+  font-weight: 600; /* Semi-negrito */
+}
+
+/* Estilo das linhas da tabela ao passar o mouse */
+.summary-table tbody tr:hover {
+  background-color: #f0f4f7; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para a linha total na tabela de resumo */
+.total-row td {
+  border-top: 2px solid #34495e; /* Borda superior mais grossa */
+  font-weight: 700; /* Negrito */
+  font-size: 1.05rem; /* Tamanho da fonte ligeiramente maior */
+  color: #2c3e50; /* Cor do texto */
+}
+
+/* Estilo para a lista de visitantes */
+.visitor-list {
+  list-style: none; /* Remove os marcadores de lista */
+  padding-left: 0; /* Remove o padding padrão da lista */
+  font-size: 0.95rem; /* Tamanho da fonte */
+  color: #2c3e50; /* Cor do texto */
+}
+
+/* Estilo para os itens da lista de visitantes */
+.visitor-list li {
+  margin-bottom: 0.6rem; /* Margem inferior */
+  line-height: 1.3; /* Altura da linha */
+}
+
+/* Estilo para o texto em negrito dentro da lista de visitantes */
+.visitor-list strong {
+  color: #34495e; /* Cor do texto */
+}
+
+/* Estilo para o texto em itálico dentro da lista de visitantes  */
+.visitor-list em {
+  color: #7f8c8d; /* Cor do texto */
+}
+
+/* Estilo para os botões na etapa de confirmação */
+.step-buttons {
+  display: flex; /* Usa flexbox */
+  justify-content: flex-end; /* Alinha os botões à direita */
+  gap: 12px; /* Espaçamento entre os botões */
+  margin-top: 1.6rem; /* Margem superior */
+}
+
+/* Estilo para o botão primário (ex: "Confirmar Compra") */
+.btn-primary {
+  background-color: #2c3e50; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  border: none; /* Sem borda */
+  padding: 0.65rem 1.4rem; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Ícone de cursor de clique */
+  font-weight: 600; /* Semi-negrito */
+  transition: background-color 0.3s ease; /* Transição suave no background */
+}
+
+/* Estilo do botão primário ao passar o mouse (se não estiver desabilitado) */
+.btn-primary:hover:not(:disabled) {
+  background-color: #34495e; /* Muda a cor de fundo */
+}
+
+/* Estilo do botão primário quando desabilitado */
+.btn-primary:disabled {
+  background-color: #95a5a6; /* Cor de fundo acinzentada */
+  cursor: not-allowed; /* Ícone de cursor de proibido */
+}
+
+/* Estilo para o botão secundário (ex: "Voltar") */
+.btn-secondary {
+  background-color: transparent; /* Fundo transparente */
+  color: #2c3e50; /* Cor do texto */
+  border: 2px solid #2c3e50; /* Borda sólida */
+  padding: 0.55rem 1.3rem; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Ícone de cursor de clique */
+  font-weight: 600; /* Semi-negrito */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+}
+
+/* Estilo do botão secundário ao passar o mouse */
+.btn-secondary:hover {
+  background-color: #2c3e50; /* Muda a cor de fundo */
+  color: white; /* Muda a cor do texto */
+}
+
+/* Estilo para parágrafos dentro de cards no conteúdo rolável */
+.scrollable-content .card p {
+  color: #444444; /* Cor do texto */
+}
+
+/* Estilos adicionais para responsividade (já existentes no seu código, mas com comentários) */
+@media (max-width: 480px) {
+  .custom-dropdown-wrapper {
+    width: 100%; /* Ocupa largura total em telas pequenas */
+  }
+  .step input {
+    max-width: 100%; /* Ocupa largura total em telas pequenas */
+  }
+  .modal-content {
+    padding: 1.5rem; /* Reduz o padding em telas pequenas */
+  }
+  .step h2 {
+    font-size: 1.6rem; /* Reduz o tamanho do título */
+  }
+}
+
+
+
+

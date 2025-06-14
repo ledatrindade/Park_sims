@@ -1,0 +1,113 @@
+/* Estilos para o contêiner principal da seção de contato */
+.contato-container {
+  background: rgba(26, 26, 26, 0.85); /* Fundo semi-transparente escuro */
+  padding: 4rem 2rem; /* Espaçamento interno */
+  min-height: 100vh; /* Garante que a seção ocupe pelo menos 100% da altura da viewport */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte */
+}
+
+/* Estilos para o cabeçalho da seção de contato */
+.contato-header {
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 3rem; /* Margem inferior */
+}
+
+/* Estilos para o título principal (h1) do cabeçalho de contato */
+.contato-header h1 {
+  font-size: 4.5rem; /* Tamanho da fonte grande */
+  color: #20AAF9; /* Cor azul vibrante para o título */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  font-weight: 600; /* Peso da fonte */
+  padding: 2rem 1rem 1rem; /* Espaçamento interno (topo, lados, inferior) */
+  text-align: center; /* Centraliza o texto */
+  font-weight: bold; /* Reforça o negrito */
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
+
+/* Estilos para o parágrafo (p) no cabeçalho de contato */
+.contato-header p {
+  font-size: 1.4rem; /* Tamanho da fonte */
+  color: #cde8f5; /* Cor azul claro pastel */
+  font-weight: 300; /* Peso da fonte leve */
+  line-height: 1.8; /* Altura da linha para melhor legibilidade */
+  max-width: 800px; /* Largura máxima para o parágrafo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  font-style: italic; /* Texto em itálico */
+}
+
+/* Estilos para o contêiner do formulário */
+.form-container {
+  display: flex; /* Usa Flexbox para alinhamento */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente (se houver espaço) */
+  flex-direction: column; /* Organiza os itens em coluna */
+  gap: 1.5rem; /* Espaçamento entre os itens */
+  max-width: 600px; /* Largura máxima do contêiner do formulário */
+  margin: 0 auto; /* Centraliza o contêiner do formulário na página */
+}
+
+/* Estilos para o formulário em si */
+form {
+  background-color: rgba(0, 0, 0, 0.52); /* Fundo semi-transparente escuro para o formulário */
+  padding: 4rem; /* Espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 100%; /* Ocupa a largura total do seu contêiner pai */
+  display: flex; /* Usa Flexbox para organizar os elementos internos */
+  flex-direction: column; /* Elementos empilhados verticalmente */
+  gap: 1rem; /* Espaçamento entre os elementos do formulário (labels, inputs, etc.) */
+}
+
+/* Estilos para os rótulos (labels) do formulário */
+form label {
+  font-size: 1rem; /* Tamanho da fonte */
+  color: #ffffff; /* Cor do texto branca */
+  font-weight: bold; /* Texto em negrito */
+}
+
+/* Estilos para os campos de entrada (input) e área de texto (textarea) */
+form input,
+form textarea {
+  padding: 0.8rem; /* Espaçamento interno */
+  font-size: 1rem; /* Tamanho da fonte */
+  border: 1px solid #ccc; /* Borda cinza clara */
+  border-radius: 6px; /* Bordas arredondadas */
+  outline: none; /* Remove o contorno padrão ao focar */
+  transition: border 0.3s; /* Transição suave para a cor da borda */
+}
+
+/* Estilos para os campos de entrada e área de texto quando focados */
+form input:focus,
+form textarea:focus {
+  border-color: #3498db; /* Muda a cor da borda para azul ao focar */
+}
+
+/* Estilos específicos para a área de texto */
+form textarea {
+  resize: vertical; /* Permite redimensionamento apenas vertical */
+  min-height: 150px; /* Altura mínima para a área de texto */
+}
+
+/* Estilos para o botão de envio do formulário */
+.contato {
+  background-color: #60E900; /* Cor de fundo verde vibrante */
+  color: #000; /* Cor do texto preta */
+  border: none; /* Remove a borda */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 12px 24px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para efeitos de hover */
+}
+
+/* Estilos do botão de envio ao passar o mouse (hover) */
+.contato:hover {
+  background-color: #4DB300; /* Verde mais escuro ao passar o mouse */
+  transform: translateY(-2px); /* Move o botão ligeiramente para cima */
+}
+
+/* Estilos do botão de envio quando focado */
+.contato:focus {
+  outline: none; /* Remove o contorno padrão */
+  box-shadow: 0 0 0 3px rgba(96, 233, 0, 0.5); /* Adiciona uma sombra de foco verde translúcida */
+}

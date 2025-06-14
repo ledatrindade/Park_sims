@@ -1,0 +1,103 @@
+/* Estilos para a seção principal de Parcerias */
+.parcerias-section {
+  background: rgba(26, 26, 26, 0.85); /* Fundo escuro semi-transparente */
+  display: flex; /* Usa Flexbox para organizar o conteúdo (cabeçalho e blocos) */
+  flex-direction: column; /* Organiza os itens em coluna */
+  gap: 3rem; /* Espaçamento entre os itens da coluna (cabeçalho e blocos) */
+  padding: 4rem 1rem; /* Espaçamento interno da seção */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte padrão */
+}
+
+/* Estilos para o cabeçalho da seção de Parcerias */
+.parcerias-header {
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 3rem; /* Margem inferior para separar do conteúdo abaixo */
+}
+
+/* Estilos para o título principal (h1) no cabeçalho */
+.parcerias-header h1 {
+  font-size: 3.5rem; /* Tamanho da fonte grande */
+  color: #20AAF9; /* Cor azul vibrante */
+  font-weight: 700; /* Negrito */
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 1rem; /* Margem inferior */
+}
+
+/* Estilos para o parágrafo (p) no cabeçalho */
+.parcerias-header p {
+  font-size: 1.25rem; /* Tamanho da fonte */
+  color: #d8f6f0; /* Cor do texto clara */
+  max-width: 760px; /* Largura máxima para o parágrafo */
+  margin: 0 auto 3rem; /* Centraliza horizontalmente e adiciona margem inferior */
+  font-style: italic; /* Texto em itálico */
+  font-weight: 300; /* Peso da fonte leve */
+  line-height: 1.8; /* Altura da linha para melhor legibilidade */
+  text-align: center; /* Centraliza o texto */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Sombra sutil no texto */
+}
+
+/* Estilos para cada bloco de parceria individual */
+.parceria-bloco {
+  position: relative; /* Define o contexto para posicionamento absoluto de pseudo-elementos e filhos */
+  height: 380px; /* Altura fixa do bloco */
+  background-size: cover; /* Garante que a imagem de fundo cubra todo o bloco */
+  background-position: center; /* Centraliza a imagem de fundo */
+  display: flex; /* Usa Flexbox para alinhar o conteúdo interno */
+  align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+  justify-content: flex-end; /* Alinha o conteúdo à direita */
+  padding-right: 5rem; /* Espaçamento à direita para o conteúdo */
+  border-radius: 12px; /* Bordas arredondadas */
+  overflow: hidden; /* Esconde conteúdo que exceda as bordas arredondadas */
+  transition: transform 0.4s ease; /* Transição suave para o efeito de hover */
+  margin-bottom: 2rem; /* Margem inferior para separar blocos (o 'gap' do pai já faz isso, mas pode ser redundante dependendo do layout) */
+  /* Reavaliar 'margin-bottom' aqui: se o 'gap' no '.parcerias-section' já está controlando
+     o espaçamento entre os blocos, esta margem pode ser redundante ou criar espaçamento extra.
+     Pode ser removida se o 'gap' for suficiente. */
+}
+
+/* Efeito de escala ao passar o mouse sobre o bloco de parceria */
+.parceria-bloco:hover {
+  transform: scale(1.01); /* Aumenta ligeiramente o tamanho do bloco */
+}
+
+/* Pseudo-elemento para criar um gradiente de sobreposição sobre a imagem de fundo,
+   melhorando a legibilidade do texto. */
+.parceria-bloco::before {
+  content: ""; /* Conteúdo vazio, necessário para pseudo-elementos */
+  position: absolute; /* Posicionamento absoluto em relação ao bloco pai */
+  inset: 0; /* Atalho para top: 0; right: 0; bottom: 0; left: 0; */
+  background: linear-gradient(to right, /* Gradiente linear da esquerda para a direita */
+    rgba(0, 0, 0, 0.2) 0%, /* Inicia com pouca opacidade (mais visibilidade da imagem) */
+    rgba(0, 0, 0, 0.5) 40%, /* Aumenta a opacidade do preto */
+    rgba(0, 0, 0, 0.8) 70%,
+    rgba(0, 0, 0, 0.95) 100%); /* Termina quase totalmente opaco na direita */
+  z-index: 1; /* Garante que o gradiente fique acima da imagem de fundo, mas abaixo do conteúdo */
+}
+
+/* Estilos para o contêiner do conteúdo textual dentro do bloco de parceria */
+.parceria-bloco .conteudo {
+  position: relative; /* Define o contexto para o z-index */
+  z-index: 2; /* Garante que o conteúdo textual fique acima do gradiente */
+  color: #fff; /* Cor do texto branca */
+  max-width: 480px; /* Largura máxima para o conteúdo de texto */
+  text-align: right; /* Alinha o texto à direita */
+  padding-left: 1rem; /* Espaçamento interno à esquerda */
+}
+
+/* Estilos para o título (h2) dentro do conteúdo do bloco */
+.parceria-bloco .conteudo h2 {
+  font-size: 2.25rem; /* Tamanho da fonte */
+  margin-bottom: 0.75rem; /* Margem inferior */
+  font-weight: 700; /* Negrito */
+  line-height: 1.3; /* Altura da linha */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Sombra no texto para melhor legibilidade */
+}
+
+/* Estilos para o parágrafo (p) dentro do conteúdo do bloco */
+.parceria-bloco .conteudo p {
+  font-size: 1.05rem; /* Tamanho da fonte */
+  line-height: 1.7; /* Altura da linha para melhor legibilidade */
+  font-weight: 300; /* Peso da fonte leve */
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4); /* Sombra no texto para melhor legibilidade */
+}

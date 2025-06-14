@@ -1,0 +1,70 @@
+/* Estilos para o body e html, garantindo que a rolagem e a altura da página estejam configuradas corretamente */
+html, body {
+  scroll-behavior: smooth; /* Adiciona rolagem suave ao navegar para âncoras */
+  margin: 0; /* Remove margens padrão do navegador */
+  padding: 0; /* Remove paddings padrão do navegador */
+  background-color: #1a1a1a; /* Cor de fundo geral da página */
+  color: #fff; /* Cor do texto padrão da página */
+  font-family: sans-serif; /* Fonte padrão para todo o corpo do documento */
+  height: 100%; /* Garante que o html e body ocupem 100% da altura da viewport */
+  width: 100%; /* Garante que o html e body ocupem 100% da largura da viewport */
+  overflow-x: hidden; /* Evita rolagem horizontal indesejada, muito importante para layouts responsivos */
+}
+
+/* Garante que o elemento 'root' (onde a aplicação React é montada) ocupe toda a altura e largura da tela */
+#root {
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove paddings padrão */
+  text-align: center; /* Centraliza o texto dentro do root, se aplicável */
+  width: 100vw; /* Ocupa 100% da largura da viewport */
+  height: 100%; /* Ocupa 100% da altura do elemento pai (body) */
+}
+
+/* O contêiner principal do conteúdo da página, empilhando as seções verticalmente e permitindo rolagem */
+.content {
+  display: flex; /* Usa Flexbox para organizar os elementos filhos */
+  flex-direction: column; /* Organiza os elementos filhos em uma coluna vertical */
+  min-height: 100vh; /* Garante que o conteúdo ocupe no mínimo a altura da tela visível. Se o conteúdo for maior, ele se expande. */
+  background-color: transparent; /* Fundo transparente para permitir que o canvas de pétalas seja visível atrás */
+  z-index: 1; /* Garante que o conteúdo fique acima do fundo (canvas), que tem z-index -1 */
+  pointer-events: auto; /* Habilita a interação com os elementos dentro do conteúdo (botões, links, etc.) */
+}
+
+/* ATENÇÃO: A classe '.Navbar' com 'N' maiúsculo no CSS não está sendo utilizada.
+   O componente 'Navbar' (no Navbar.jsx) aplica a classe '.navbar' (com 'n' minúsculo).
+   Portanto, esta regra CSS não tem efeito no momento.
+   Se a intenção era estilizar o componente Navbar, a classe correta a ser usada no CSS é '.navbar'. */
+.Navbar {
+  z-index: 2; /* Embora esta regra não esteja sendo aplicada devido ao nome da classe,
+                 a intenção é que a barra de navegação esteja acima do conteúdo (z-index: 1)
+                 e do fundo (z-index: -1). O .navbar (lowercase) em Navbar.css já faz isso. */
+}
+
+/* Estilos para o elemento <canvas> (usado pelo PetalasCanvas).
+   Estas regras sobrescrevem ou complementam os estilos inline definidos no PetalasCanvas.jsx. */
+canvas {
+  position: fixed; /* Fixo na tela, não rola com o conteúdo */
+  top: 0; /* Alinha ao topo da viewport */
+  left: 0; /* Alinha à esquerda da viewport */
+  width: 100%; /* Ocupa 100% da largura da viewport */
+  /* A altura de 200% pode ser desnecessária/redundante se o PetalasCanvas já define 'height: 100vh' e 'position: fixed'.
+     O efeito de "rolagem" do fundo com 200% de altura só funcionaria se o canvas não fosse 'fixed' ou
+     se ele tivesse um conteúdo interno que rolasse. Como é um fundo fixo, '100%' ou '100vh' já seria o suficiente.
+     Mantenho 200% conforme seu código original, mas com a observação. */
+  height: 200%; /* Define a altura para o canvas. Considerar '100vh' se o fundo é fixo e cobre a tela. */
+  z-index: -1; /* Posiciona o canvas abaixo de todo o resto do conteúdo da página */
+}
+
+/* Contêiner principal da aplicação, usado para gerenciar o empilhamento (z-index) */
+.app-container {
+  position: relative; /* Cria um novo contexto de empilhamento */
+  z-index: 1; /* Garante que este contêiner e seus filhos fiquem acima do canvas (-1) */
+}
+
+/* Garante que o conteúdo e a barra de navegação sejam interativos.
+   Isso é crucial porque o PetalasCanvas define `pointer-events: none` para o canvas,
+   permitindo interações com os elementos abaixo. Estas regras explicitamente reativam
+   os eventos de ponteiro para o conteúdo e a navbar. */
+.content, .navbar { /* ATENÇÃO: '.navbar' aqui deve ser com 'n' minúsculo para corresponder ao componente Navbar. */
+  pointer-events: auto; /* Habilita a interação (cliques, toques) para esses elementos */
+}

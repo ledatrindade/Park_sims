@@ -1,0 +1,132 @@
+/* src/styles/atracoes.css */
+
+/* Estilos para o contêiner principal da seção de atrações */
+.atracoes-container {
+  background: rgba(26, 26, 26, 0.85); /* Fundo semi-transparente escuro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte padrão */
+  padding: 4rem 2rem; /* Espaçamento interno (vertical e horizontal) */
+  position: relative; /* Necessário para posicionamento de elementos filhos */
+  z-index: 1; /* Garante que esta seção fique acima do canvas de pétalas, por exemplo */
+}
+
+/* Estilos para o título principal da seção de atrações */
+.atracoes-header h1 {
+  font-size: 3.5rem; /* Tamanho da fonte grande */
+  color: #20AAF9; /* Cor azul vibrante */
+  font-weight: 700; /* Negrito */
+  text-transform: uppercase; /* Texto em maiúsculas */
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 1rem; /* Margem inferior */
+}
+
+/* Estilos para o parágrafo descritivo no cabeçalho */
+.atracoes-header p {
+  font-size: 1.25rem; /* Tamanho da fonte */
+  color: #d8f6f0; /* Cor do texto clara */
+  max-width: 760px; /* Largura máxima para o parágrafo */
+  margin: 0 auto 3rem; /* Centraliza horizontalmente e adiciona margem inferior */
+  font-style: italic; /* Texto em itálico */
+  font-weight: 300; /* Peso da fonte leve */
+  line-height: 1.8; /* Altura da linha para melhor legibilidade */
+  text-align: center; /* Centraliza o texto */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Sombra sutil no texto */
+}
+
+/* Estilos para o contêiner dos cards das atrações */
+.cards-wrapper {
+  display: flex; /* Usa Flexbox para organizar os cards */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  gap: 2rem; /* Espaçamento entre os cards */
+  margin-bottom: 3rem; /* Margem inferior */
+  flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha em telas menores */
+}
+
+/* Estilos para cada card de atração individual */
+.atracao-card {
+  width: 350px; /* Largura fixa do card */
+  height: 650px; /* Altura fixa do card */
+  background-color: #e0eaf0; /* Cor de fundo de fallback (será sobrescrita pela imagem) */
+  border-radius: 12px; /* Bordas arredondadas */
+  overflow: hidden; /* Esconde conteúdo que exceda as bordas arredondadas */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  position: relative; /* Necessário para posicionar o overlay */
+  transition: transform 0.3s ease; /* Transição suave para o efeito de hover */
+  background-size: cover; /* Garante que a imagem de fundo cubra todo o card */
+  background-position: center; /* Centraliza a imagem de fundo */
+}
+
+/* Efeito de escala ao passar o mouse sobre o card */
+.atracao-card:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho do card */
+}
+
+/* Mostra o overlay ao passar o mouse sobre o card */
+.atracao-card:hover .overlay {
+  opacity: 1; /* Torna o overlay completamente visível */
+}
+
+/* Estilos para o overlay que aparece sobre o card */
+.overlay {
+  color: white; /* Cor do texto dentro do overlay */
+  height: 100%; /* Ocupa 100% da altura do card */
+  width: 100%; /* Ocupa 100% da largura do card */
+  opacity: 0; /* Inicialmente invisível */
+  display: flex; /* Usa Flexbox para alinhar conteúdo verticalmente */
+  flex-direction: column; /* Itens empilhados verticalmente */
+  justify-content: center; /* Centraliza itens verticalmente */
+  align-items: center; /* Centraliza itens horizontalmente */
+  transition: opacity 0.3s ease; /* Transição suave para o efeito de opacidade */
+  position: absolute; /* Posicionamento absoluto em relação ao card pai */
+  top: 0; /* Alinha ao topo do card */
+  left: 0; /* Alinha à esquerda do card */
+  /* Adicione um background para o overlay se quiser um efeito de escurecimento ou cor */
+  background: rgba(0, 0, 0, 0.7); /* Exemplo de fundo semi-transparente escuro para o overlay */
+}
+
+/* Estilos para o ícone dentro do overlay (se houvesse um) */
+.overlay .icon {
+  margin-bottom: 0.9rem; /* Margem inferior */
+  display: flex; /* Usa Flexbox */
+  justify-content: center; /* Centraliza conteúdo */
+  align-items: center; /* Centraliza conteúdo */
+  font-size: 2rem; /* Tamanho da fonte do ícone */
+}
+
+/* Estilos para o título dentro do overlay */
+.overlay h3 {
+  font-size: 2rem; /* Tamanho da fonte */
+  font-weight: 600; /* Peso da fonte */
+  text-align: center; /* Centraliza o texto */
+  letter-spacing: 0.5px; /* Espaçamento entre letras */
+  margin: 0; /* Remove margens padrão */
+}
+
+/* Estilos para o parágrafo de descrição dentro do overlay */
+.overlay p {
+  font-size: 1rem; /* Tamanho da fonte */
+  color: #f0f0f0; /* Cor do texto clara */
+  padding: 0 1rem; /* Espaçamento interno lateral */
+  text-align: center; /* Centraliza o texto */
+  line-height: 1.6; /* Altura da linha para melhor legibilidade */
+  margin: 1rem 0; /* Margem vertical */
+}
+
+/* Estilos para o botão dentro do overlay */
+.overlay button {
+  margin-top: 1rem; /* Margem superior */
+  background-color: #20AAF9; /* Cor de fundo azul */
+  color: #fff; /* Cor do texto branca */
+  font-size: 1rem; /* Tamanho da fonte */
+  padding: 1rem 2.5rem; /* Espaçamento interno */
+  border: none; /* Remove a borda padrão */
+  border-radius: 50px; /* Bordas bem arredondadas (formato de pílula) */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: transform 0.4s ease, background-color 0.4s ease; /* Transição suave para hover */
+  font-weight: 600; /* Peso da fonte */
+}
+
+/* Estilos do botão ao passar o mouse (hover) */
+.overlay button:hover {
+  background-color: #60E900; /* Muda a cor de fundo para verde ao passar o mouse */
+  transform: translateY(-2px); /* Animação: move o botão ligeiramente para cima */
+}

@@ -1,0 +1,148 @@
+/* Estilos para o contêiner principal da seção "Trabalhe Conosco" */
+.trabalhe-container {
+  background: rgba(26, 26, 26, 0.85); /* Fundo escuro semi-transparente */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte padrão */
+  padding: 4rem 2rem; /* Espaçamento interno (vertical e horizontal) */
+  position: relative; /* Contexto para z-index */
+  z-index: 1; /* Garante que o conteúdo fique acima de possíveis fundos animados */
+  text-align: center; /* Centraliza o texto (títulos e parágrafo introdutório) */
+}
+
+/* Estilos para o título principal (h1) da seção "Trabalhe Conosco" */
+.trabalhe-container h1 {
+  font-size: 3.5rem; /* Tamanho da fonte grande */
+  color: #20AAF9; /* Cor azul vibrante */
+  font-weight: 700; /* Negrito */
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+  margin-bottom: 1rem; /* Margem inferior */
+}
+
+/* Estilos para o parágrafo (p) introdutório da seção "Trabalhe Conosco" */
+.trabalhe-container p {
+  font-size: 1.25rem; /* Tamanho da fonte */
+  color: #d8f6f0; /* Cor do texto clara */
+  max-width: 760px; /* Largura máxima para o parágrafo */
+  margin: 0 auto 3rem; /* Centraliza horizontalmente e adiciona margem inferior */
+  font-style: italic; /* Texto em itálico */
+  font-weight: 300; /* Peso da fonte leve */
+  line-height: 1.8; /* Altura da linha para melhor legibilidade */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Sombra sutil no texto */
+}
+
+/* Contêiner para agrupar os cards de vagas */
+.vagas-wrapper {
+  display: flex; /* Usa Flexbox para organizar os cards */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha em telas menores */
+  gap: 2rem; /* Espaçamento entre os cards */
+}
+
+/* Estilos para cada card de vaga individual */
+.vaga-card {
+  width: 600px; /* Largura fixa do card */
+  height: 400px; /* Altura fixa do card */
+  /* background-image: url('caminho/para/imagem-padrao.jpg'); */ /* SUGESTÃO: Pode definir uma imagem de fundo padrão aqui */
+  background-size: cover; /* Garante que a imagem de fundo cubra todo o card */
+  background-position: center; /* Centraliza a imagem de fundo */
+  border-radius: 12px; /* Bordas arredondadas */
+  overflow: hidden; /* Esconde conteúdo que exceda as bordas arredondadas */
+  cursor: pointer; /* Indica que o card é clicável */
+  position: relative; /* Necessário para posicionar o overlay e o pseudo-elemento */
+  transition: transform 0.3s ease; /* Transição suave para o efeito de hover */
+  display: flex; /* Usa Flexbox para centralizar o conteúdo dentro do card */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  text-align: center; /* Centraliza o texto dentro do card */
+  color: #fff; /* Cor do texto branca */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra para dar profundidade */
+  /* Se você usar 'vaga.image' no JSX, pode remover a imagem de fundo daqui. */
+  /* Ou usar aqui uma imagem de fallback ou uma imagem genérica para todas as vagas. */
+}
+
+/* Pseudo-elemento para criar uma sobreposição escura sobre a imagem de fundo do card,
+   melhorando a legibilidade do texto antes do hover. */
+.vaga-card::before {
+  content: ''; /* Conteúdo vazio, necessário para pseudo-elementos */
+  position: absolute; /* Posicionamento absoluto em relação ao card pai */
+  background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo semi-transparente escura */
+  width: 100%; /* Ocupa 100% da largura do card */
+  height: 100%; /* Ocupa 100% da altura do card */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  z-index: 1; /* Fica acima da imagem de fundo, mas abaixo do conteúdo da vaga */
+}
+
+/* Estilos para o contêiner do conteúdo da vaga (título, descrição, ícone) */
+.vaga-conteudo {
+  position: relative; /* Define o contexto para z-index */
+  z-index: 2; /* Garante que o conteúdo da vaga fique acima da sobreposição */
+  padding: 1rem; /* Espaçamento interno */
+}
+
+/* Estilos para o título (h2) da vaga */
+.vaga-conteudo h2 {
+  font-size: 1.8rem; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  margin-bottom: 0.5rem; /* Margem inferior */
+}
+
+/* Estilos para o parágrafo (p) de descrição da vaga */
+.vaga-conteudo p {
+  font-size: 1rem; /* Tamanho da fonte */
+  line-height: 1.4; /* Altura da linha */
+  color: #eee; /* Cor do texto mais clara para contraste */
+}
+
+/* Efeito de escala ao passar o mouse sobre o card de vaga */
+.vaga-card:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho do card */
+}
+
+/* Estilos para o overlay que aparece ao passar o mouse */
+.vaga-overlay {
+  position: absolute; /* Posicionamento absoluto em relação ao card pai */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Ocupa 100% da largura do card */
+  height: 100%; /* Ocupa 100% da altura do card */
+  background-color: rgba(32, 170, 249, 0.92); /* Cor de fundo azul semi-transparente */
+  display: flex; /* Usa Flexbox para centralizar o botão */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  opacity: 0; /* Inicialmente invisível */
+  z-index: 3; /* Fica acima do conteúdo da vaga quando visível */
+  transition: opacity 0.4s ease; /* Transição suave para o efeito de opacidade */
+}
+
+/* Torna o overlay visível ao passar o mouse sobre o card */
+.vaga-card:hover .vaga-overlay {
+  opacity: 1; /* Torna o overlay totalmente visível */
+}
+
+/* Estilos para o botão dentro do overlay */
+.vaga-overlay button {
+  background-color: #fff; /* Cor de fundo branca */
+  color: #20AAF9; /* Cor do texto azul */
+  font-size: 1rem; /* Tamanho da fonte */
+  padding: 0.8rem 2rem; /* Espaçamento interno */
+  border: none; /* Remove a borda padrão */
+  border-radius: 50px; /* Bordas arredondadas (formato de pílula) */
+  font-weight: 600; /* Peso da fonte */
+  cursor: pointer; /* Indica que o botão é clicável */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para efeitos de hover */
+}
+
+/* Estilos do botão ao passar o mouse (hover) */
+.vaga-overlay button:hover {
+  background-color: #60E900; /* Muda a cor de fundo para verde claro */
+  color: #000; /* Muda a cor do texto para preto */
+  transform: translateY(-2px); /* Move o botão ligeiramente para cima */
+}
+
+/* Estilos para o ícone da vaga */
+.vaga-icon {
+  width: 50px; /* Largura do ícone */
+  height: 50px; /* Altura do ícone */
+  margin-bottom: 1rem; /* Margem inferior para separar do título */
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.4)); /* Sombra para o ícone */
+}
